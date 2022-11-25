@@ -56,7 +56,7 @@ public class Lambda01 {
     }
 
     // kendimiz bir method olusturuyoruz
-    private static void yazdir(int a) {
+    public static void yazdir(int a) {
         System.out.print(a + " ");
     }
 
