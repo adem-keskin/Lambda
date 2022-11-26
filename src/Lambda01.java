@@ -74,6 +74,17 @@ public class Lambda01 {
                 filter(t->t % 2 == 0).      // lambda expression
                 forEach(Lambda01::yazdir);
     }
+    // yukardaki Task i filter() kismini method referance ile yapalim
+    public static boolean ciftBul(int a){
+        return a % 2 == 0;
+    }
+    public static void printCiftElFunctional1(List<Integer>sayi){
+        sayi.
+                stream().
+                filter(Lambda01::ciftBul).      // method refrence ile
+                forEach(Lambda01::yazdir);
+    }
+
     //TASK  : Structural Programming ile list elemanlarinin  cift olanlarini ayni satirda aralarina bosluk birakarak print ediniz.
     public static void printCiftElStructured(List<Integer>sayi){
         for (Integer w:sayi) {
