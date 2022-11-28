@@ -40,19 +40,20 @@ public class Lambda02 {
         ciftKareKbSortPrint(sayi);
 
     }
+
     // Task-1 : Functional Programming ile listin cift elemanlarinin  karelerini
-    // ayni satirda aralarina bosluk bırakarak print ediniz
+    // Ayni satirda aralarina bir bosluk bırakarak print ediniz.
 
     public static void ciftKarePrint(List<Integer> sayi){
         sayi.
                 stream().
-                filter(Lambda01::ciftBul).  //akistaki cift sayilari filtreledik 4,2,6
-                map(t-> t*t).   // 16,4,36 Stream icersindeki elemanlarin karesini aldirdik..
-                forEach(Lambda01::yazdir);  // Burdada Lambda01 deki kendi yazdigimiz metodlari kullandik
+                filter(Lambda01::ciftBul).          // Akistaki cift sayilari filtreledik 4,2,6     stream -->akis demektir :: seklindede birden fazla methodu cagirabiliriz..
+                map(t-> t*t).                       // 16,4,36 Stream icersindeki elemanlarin karesini aldirdik..List teki elemanlar degil degisime ugramis elamanlar ile devam ettik..
+                forEach(Lambda01::yazdir);          // Burdada Lambda01 deki kendi yazdigimiz metodlari kullandik..
 
     }
 
-    // Task-2: Functinal pragraming ile listin tek elemanlarin küplerini ayni satirda aralarinda bosluk ile yazdirin
+    // Task-2: Functional programing ile list in tek elemanlarin, küplerini, ayni satirda, aralarinda birer bosluk birakarak yazdirin..
 
     public static void tekKupBirFazlaPrint(List<Integer> sayi){
         sayi.
@@ -76,15 +77,16 @@ public class Lambda02 {
     // Task-4: listin en büyük elemanini yazdirin
 
     public static void maxElBul(List<Integer> sayi){
-        Optional<Integer> maxSayi =
+        Optional<Integer> maxSayi =                         // Optional return edilecek sonuc exception throw etmemesi icin kullanilir.
                 sayi.
                 stream().
-                reduce(Math::max); // Eger sonuc ta tek deger dönecekse reduce() kullanilir.
+                reduce(Math::max);                          // Eger sonuc ta tek deger dönecekse reduce() kullanilir.
         System.out.println(maxSayi);
     }
-    //Structured yapi ile ayni taski cözelim
+
+    //Structured yapi ile ayni task i cözelim
     public static void structuredMaxElBul(List<Integer>sayi){
-        int max =Integer.MIN_VALUE;  //en kücük olabolecek degeri aldik ki max sorun olmasin
+        int max =Integer.MIN_VALUE;                         //en kücük int degeri aldik ki, sonraki her eleman daha büyük olabilsin ve max degeri bulmak sorun olmasin.
         System.out.println("max = "+ max);
         for (int i= 0; i<sayi.size(); i++){
             if (sayi.get(i)>max) max= sayi.get(i);
@@ -98,7 +100,7 @@ public class Lambda02 {
                 stream().
                 filter(Lambda01::ciftBul).
                 map(a -> a * a).
-                reduce(Integer::max));  //Math::max ´a göre daha hizli calisir!!
+                reduce(Integer::max));                      //Integer :: max , Math::max ´a göre daha hizli calisir!!
     }
 
     //Task-6: List teki tüm elemnlarin toplamini yazdiriniz.Lambda Expression...
